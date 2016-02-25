@@ -10,6 +10,7 @@
 #import "WhirlyGlobeMaplyComponent/WhirlyGlobeComponent.h"
 #import "DataExtract.h"
 
+
 @interface ViewController ()
 - (void) addCountries;
 ////NPR ARTICLE
@@ -49,6 +50,12 @@ DataExtract *extractor;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"At a Glance";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:@selector(presentLeftMenuViewController:)];
     
     if (DoGlobe)
     {
@@ -336,7 +343,7 @@ DataExtract *extractor;
 //        
 //        NSLog(@"location %@",self.placemark.subLocality);
         [self fetchData:nil];
-        [NSTimer scheduledTimerWithTimeInterval:30.0
+        [NSTimer scheduledTimerWithTimeInterval:1.0
                                          target:self
                                        selector:@selector(fetchData:)
                                        userInfo:nil

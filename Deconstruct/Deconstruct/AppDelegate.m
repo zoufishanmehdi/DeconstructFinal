@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "WorldNewsTVC.h"
+#import "ViewController.h"
+#import "DEMOLeftMenuViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +19,19 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[WorldNewsTVC alloc] init]];
+    DEMOLeftMenuViewController *leftMenuViewController = [[DEMOLeftMenuViewController alloc] init];
+    
+    // Create side menu controller
+    //
+    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController leftMenuViewController:leftMenuViewController rightMenuViewController:nil];
+    
+    
+    sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
+    
+    // Make it a root controller
+    //
+    self.window.rootViewController = sideMenuViewController;
     return YES;
 }
 
