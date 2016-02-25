@@ -13,14 +13,24 @@
 @interface ViewController ()
 - (void) addCountries;
 ////NPR ARTICLE
-//- (void)addAnnotation:(ArticleScreenMarker*)theMarker at:(MaplyCoordinate)coord;
+- (void)addAnnotation:(ArticleScreenMarker*)theMarker at:(MaplyCoordinate)coord;
 //TO GET COORDINATES
 - (void)addAnnotation:(NSString *)title withSubtitle:(NSString *)subtitle at:(MaplyCoordinate)coord;
 - (void) addAnnotation:(NSString *)title withSubtitle:(NSString *)subtitle at: (MaplyCoordinate)coord;
 
 //coordinate properties
+@property(nonatomic)ArticleScreenMarker *marker;
 @property(nonatomic)double latitude;
 @property(nonatomic)double longitude;
+@property(nonatomic)CLPlacemark *placemark;
+
+//country properties
+@property(nonatomic)NSString *totalPop;
+@property(nonatomic)NSString *surfacear;
+@property(nonatomic)NSString *gdp;
+@property(nonatomic)NSString *timeReq;
+@property(nonatomic)NSString *fdi;
+@property(nonatomic)NSString *urbPop;
 @end
 
 @implementation ViewController{
@@ -30,6 +40,7 @@
     NSDictionary *vectorDict;               // outlines for the countries
     NSDictionary *inputData;
     NSMutableArray *markerList;
+    NSDictionary *indicateForMe;
 }
 
 // Set this to false for a map
@@ -130,72 +141,45 @@ DataExtract *extractor;
     
     // add the countries
         [self addCountries];
-    
-//    [self fetchData:nil];
-//    [NSTimer scheduledTimerWithTimeInterval:30.0
-//                                     target:self
-//                                   selector:@selector(fetchData:)
-//                                   userInfo:nil
-//                                    repeats:YES];
-//    
-//    extractor = [[DataExtract alloc] init];
-//    
+
 //    // add the beacons
-//    [self addNewsBeacons];
+ // [self addNewsBeacons];
 }
 
-- (void) addNewsBeacons
-{
-    markerList = [[NSMutableArray alloc] init];
-    UIImage *icon = [UIImage imageNamed:@"circle-stroked-24@2x.png"];
-    
-    for (NSDictionary *article in extractor.articleList) {
-        ArticleScreenMarker *marker = [[ArticleScreenMarker alloc] initWithDictionary:article];
-        marker.info.title = [article objectForKey:@"title"];
-        marker.info.subTitle = [article objectForKey:@"location"];
-        
-        marker.image = icon;
-        double latitude = [[article objectForKey:@"coordinates"][1] doubleValue];
-        double longitude = [[article objectForKey:@"coordinates"][0] doubleValue];
-        marker.loc = MaplyCoordinateMakeWithDegrees(latitude, longitude);
-        marker.size = CGSizeMake(40,40);
-        
-        [markerList addObject:marker];
-    }
-    
-    [theViewC addScreenMarkers:markerList desc:nil];
-}
+//- (void) addNewsBeacons
+//{
+//    
+//    for (NSDictionary *countryInd in extractor.indicatorList) {
+//        self.marker = [[ArticleScreenMarker alloc] initWithDictionary:countryInd];
+//        //EXAMPLE
+////        NSDictionary *thumbnail = [images objectForKey:@"thumbnail"];
+////        
+////        NSString *urlString = [thumbnail objectForKey:@"url"];
+//        //FIRSTVAL
+////        NSString *firstValue = [[countryInd objectForKey:@"value"]objectAtIndex:0];
+////        NSLog(@"%@", firstValue);
+//        //Country Pop
+//        //NSString *countryPop = [countryInd objectForKey:@"value"];
+////        NSLog(@"%@", countryPop);
+//        
+//        
+//        
+//        
+//        
+//        //new app methods
+////        marker.info.title = [countryInd objectForKey:@"indicator" o];
+////        marker.info.subTitle = [article objectForKey:@"location"];
+////        
+////        marker.image = icon;
+////        marker.loc = MaplyCoordinateMakeWithDegrees(self.latitude, self.longitude);
+////        marker.size = CGSizeMake(40,40);
+////        
+////        [markerList addObject:marker];
+//    }
+//    
+//    //[theViewC addScreenMarkers:markerList desc:nil];
+//}
 
-- (void)fetchData:(NSTimer*) timer  {
-    NSURL *url = [NSURL URLWithString:@"http://104.236.54.3/data.json"];
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
-    
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                               if (!error) {
-                                   [theViewC removeObjects:markerList];
-                                   [extractor openJSON:data];
-//                                   [self addNewsBeacons];
-                               }
-                           }];
-    
-    //    NSURLSession *session = [[NSURLSession alloc] init];
-    //    [session dataTaskWithRequest:request completionHandler:^(NSData* data, NSURLResponse *response, NSError *error){
-    //                   if (!error) {
-    //                       NSLog(@"i fetched");
-    //                       NSString *filePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
-    //                       [data writeToFile:filePath atomically:NO];
-    //                       // [theViewC ] clear all the beacons
-    //                       [self addNewsBeacons];
-    //                   }
-    //               }];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (void)addCountries
 {
@@ -239,42 +223,33 @@ DataExtract *extractor;
                    });
 }
 
-//NPR Articles
-//- (void)addAnnotation:(ArticleScreenMarker*)theMarker at:(MaplyCoordinate)coord
+
+//-(void)addAnnotation:(NSString *)title withSubtitle:(NSString *)subtitle at:(MaplyCoordinate)coord
 //{
 //    [theViewC clearAnnotations];
+//    
 //    MaplyAnnotation *annotation = [[MaplyAnnotation alloc] init];
-//    AnnotationView *infoPane = [[[NSBundle mainBundle] loadNibNamed:@"AnnotationView"
-//                                                              owner:self
-//                                                            options:nil]
-//                                objectAtIndex:0];
-//    [infoPane setFrame:CGRectMake(0, 0, infoPane.frame.size.width, infoPane.frame.size.height)];
-//    [self.view addSubview:infoPane];
-//    
-//    infoPane.title.text = theMarker.info.title;
-//    infoPane.snippet.text = [theMarker.articleInfo objectForKey:@"snippet"];
-//    infoPane.location.text = theMarker.info.subTitle;
-//    infoPane.publisherImage.image = [UIImage imageNamed:@"AP Icon.png"];
-//    NSString *url =[[theMarker articleInfo] objectForKey:@"url"];
-//    infoPane.url = [NSURL URLWithString:url];
-//    
-//    annotation.contentView = infoPane;
-//    
+//    annotation.title = title;
+//    annotation.subTitle = subtitle;
 //    [theViewC addAnnotation:annotation forPoint:coord offset:CGPointZero];
 //}
--(void)addAnnotation:(NSString *)title withSubtitle:(NSString *)subtitle at:(MaplyCoordinate)coord
-{
-    [theViewC clearAnnotations];
-    
-    MaplyAnnotation *annotation = [[MaplyAnnotation alloc] init];
-    annotation.title = title;
-    annotation.subTitle = subtitle;
-    [theViewC addAnnotation:annotation forPoint:coord offset:CGPointZero];
-}
 
 - (void)globeViewController:(WhirlyGlobeViewController *)viewC
                    didTapAt:(MaplyCoordinate)coord
 {
+    [viewC clearAnnotations];
+    markerList = [[NSMutableArray alloc] init];
+    UIImage *icon = [UIImage imageNamed:@"map_pin.png"];
+    
+    
+    self.marker = [[ArticleScreenMarker alloc] init];
+    MaplyAnnotation *annotation = [[MaplyAnnotation alloc] init];
+    AnnotationView *infoPane = [[[NSBundle mainBundle] loadNibNamed:@"AnnotationView"
+                                                              owner:self
+                                                            options:nil]
+                                objectAtIndex:0];
+    [infoPane setFrame:CGRectMake(0, 0, infoPane.frame.size.width, infoPane.frame.size.height)];
+    [self.view addSubview:infoPane];
     NSString *title = @"Tap Location:";
     NSString *subtitle = [NSString stringWithFormat:@"(%.2fN, %.2fE)",
                           coord.y*57.296,coord.x*57.296];
@@ -292,14 +267,40 @@ DataExtract *extractor;
     //geocoding for country name and isocode
     [self geoCoding];
     
-    NSLog(@"%@", subtitle);
+   // NSLog(@"%@", subtitle);
     
     NSLog(@"%f", self.latitude);
     
     NSLog(@"%f", self.longitude);
-    [self addAnnotation:title withSubtitle:subtitle at:coord];
     
-    [theViewC clearAnnotations];
+    
+    //Adding country indicators
+       annotation.contentView = infoPane;
+    infoPane.countryName.text = self.placemark.country;
+    infoPane.totalPop.text = [NSString stringWithFormat:@"Total Population: %@",self.totalPop];
+    infoPane.surfaceArea.text = [NSString stringWithFormat:@"Surface Area: %@",self.surfacear];
+    infoPane.gDP.text = [NSString stringWithFormat:@"GDP: %@",self.gdp];
+    infoPane.fDI.text = [NSString stringWithFormat:@"FDI: %@",self.fdi];
+    infoPane.timeReqBus.text = [NSString stringWithFormat:@"Time Required to Start: %@",self.timeReq];
+    
+    
+    //[viewC addAnnotation:title withSubtitle:subtitle at:coord];
+    
+    self.marker.image = icon;
+    self.marker.loc = MaplyCoordinateMakeWithDegrees(self.latitude, self.longitude);
+    self.marker.size = CGSizeMake(40,40);
+   
+    
+   
+    //[theViewC addScreenMarkers:self.marker.loc desc:nil];
+   [markerList addObject:self.marker];
+//
+//
+  [theViewC addScreenMarkers:markerList desc:nil];
+    
+    [theViewC addAnnotation:annotation forPoint:coord offset:CGPointZero];
+
+    
 }
 
 -(void)geoCoding {
@@ -310,48 +311,182 @@ DataExtract *extractor;
     
     [ceo reverseGeocodeLocation:loc completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         
-        CLPlacemark *placemark = [placemarks objectAtIndex:0];
-        NSLog(@"placemark %@",placemark);
+        self.placemark = [placemarks objectAtIndex:0];
+        NSLog(@"placemark %@",self.placemark);
         
         //String to hold address
         
-        NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+        NSString *locatedAt = [[self.placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
 //        
-//        NSLog(@"addressDictionary %@", placemark.addressDictionary);
+//        NSLog(@"addressDictionary %@", self.placemark.addressDictionary);
         
-        NSLog(@"placemark %@",placemark.region);
+        NSLog(@"placemark %@",self.placemark.region);
         
-        NSLog(@"placemark %@",placemark.country);  // Give Country Name
+        NSLog(@"placemark %@",self.placemark.country);  // Give Country Name
         
-        NSLog(@"placemark %@",placemark.locality); // Extract the city name
+        NSLog(@"placemark %@",self.placemark.locality); // Extract the city name
         
-        NSLog(@"location %@",placemark.name);
+        NSLog(@"location %@",self.placemark.name);
         
-        NSLog(@"ISOcountryCode %@",placemark.ISOcountryCode);
+        NSLog(@"ISOcountryCode %@",self.placemark.ISOcountryCode);
 //        
-//        NSLog(@"location %@",placemark.ocean);
+//        NSLog(@"location %@",self.placemark.ocean);
 //        
-//        NSLog(@"location %@",placemark.postalCode);
+//        NSLog(@"location %@",self.placemark.postalCode);
 //        
-//        NSLog(@"location %@",placemark.subLocality);
-        
+//        NSLog(@"location %@",self.placemark.subLocality);
+        [self fetchData:nil];
+        [NSTimer scheduledTimerWithTimeInterval:30.0
+                                         target:self
+                                       selector:@selector(fetchData:)
+                                       userInfo:nil
+                                        repeats:YES];
     }];
     
 }
 
-//- (void)maplyViewController:(MaplyViewController *)viewC
-//                   didTapAt:(MaplyCoordinate)coord
-//{
-//    NSString *title = @"Tap Location:";
-//    NSString *subtitle = [NSString stringWithFormat:@"(%.2fN, %.2fE)",
-//                          coord.y*57.296,coord.x*57.296];
-//    [self addAnnotation:title withSubtitle:subtitle at:coord];
+
+// INDICATORS WORK!!!!
+- (void)fetchData:(NSTimer*) timer  {
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.worldbank.org/country/%@/indicator/sp.pop.totl;ag.srf.totl.k2;ny.gdp.mktp.cd;ic.reg.durs;bx.klt.dinv.wd.gd.zs;sp.urb.grow?date=2014&source=2&per_page=1000&format=json",self.placemark.ISOcountryCode]];
+    //self.placemark.ISOcountryCode
+    
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+    
+    NSData *response = [NSURLConnection sendSynchronousRequest:request
+                                             returningResponse:nil error:nil];
+    
+    
+    
+    // NSError *jsonParsingError = nil;
+    NSArray *country = [[NSJSONSerialization JSONObjectWithData:response
+                                                        options:0 error:nil]objectAtIndex:1];
+    
+    NSLog(@"%@", country);
+    
+    
+    AnnotationView *infoPane = [[[NSBundle mainBundle] loadNibNamed:@"AnnotationView"
+                                                              owner:self
+                                                            options:nil]objectAtIndex:0];
+    
+    //TOTAL POP
+    NSDictionary *pop = [country objectAtIndex:0];
+    NSLog(@"%@", pop);
+   self.totalPop = [pop objectForKey:@"value"];
+//    NSLog(@"%@", self.totalPop);
+    infoPane.totalPop.text = self.totalPop;
+    
+    //surface area
+    NSDictionary *sur = [country objectAtIndex:1];
+    NSLog(@"%@", sur);
+    self.surfacear = [sur objectForKey:@"value"];
+    NSLog(@"%@", self.surfacear);
+    infoPane.surfaceArea.text = self.surfacear;
+    
+    
+    //GDP
+    NSDictionary *gee = [country objectAtIndex:2];
+    NSLog(@"%@", gee);
+    self.gdp = [gee objectForKey:@"value"];
+    NSLog(@"%@", self.gdp);
+    infoPane.gDP.text = self.gdp;
+    
+    //time req to do business
+    NSDictionary *tim = [country objectAtIndex:3];
+    NSLog(@"%@", tim);
+    self.timeReq = [tim objectForKey:@"value"];
+    NSLog(@"%@", self.timeReq);
+    infoPane.timeReqBus.text = self.timeReq;
+    
+    //FDI
+    NSDictionary *forD = [country objectAtIndex:4];
+    NSLog(@"%@", forD);
+    self.fdi = [forD objectForKey:@"value"];
+    NSLog(@"%@", self.fdi);
+//    NSString *rssiString = [NSString stringWithFormat:@"%@", self.fdi];
+    infoPane.fDI.text = self.fdi; 
+    
+    //urban pop growth
+    NSDictionary *urb = [country objectAtIndex:5];
+    NSLog(@"%@", urb);
+    self.urbPop = [urb objectForKey:@"value"];
+    NSLog(@"%@", self.urbPop);
+    
+   // [self addBlurb];
+    
+}
+//
+//-(void)addBlurb {
+//   // [theViewC clearAnnotations];
+//    MaplyAnnotation *annotation = [[MaplyAnnotation alloc] init];
+//    AnnotationView *infoPane = [[[NSBundle mainBundle] loadNibNamed:@"AnnotationView"
+//                                                              owner:self
+//                                                            options:nil]
+//                                objectAtIndex:0];
+//    [infoPane setFrame:CGRectMake(0, 0, infoPane.frame.size.width, infoPane.frame.size.height)];
+//    [self.view addSubview:infoPane];
+//    
+//    infoPane.countryName.text = self.placemark.country;
+//    infoPane.totalPop.text = self.totalPop;
+//    infoPane.gDP.text = self.gdp;
+//    
+//    
+//    annotation.contentView = infoPane;
+//    
+//    //[self addAnnotation:infoPane at:self.marker.loc];
+//    [theViewC addAnnotation:annotation forPoint:self.marker.loc offset:CGPointZero];
 //}
+
+////Add annotation
+//- (void)addAnnotation:(ArticleScreenMarker*)theMarker at:(MaplyCoordinate)coord
+//{
+//    [theViewC clearAnnotations];
+//    MaplyAnnotation *annotation = [[MaplyAnnotation alloc] init];
+//    AnnotationView *infoPane = [[[NSBundle mainBundle] loadNibNamed:@"AnnotationView"
+//                                                              owner:self
+//                                                            options:nil]
+//                                objectAtIndex:0];
+//    [infoPane setFrame:CGRectMake(0, 0, infoPane.frame.size.width, infoPane.frame.size.height)];
+//    [self.view addSubview:infoPane];
+//
+//    infoPane.countryName.text = self.placemark.country;
+//    infoPane.totalPop.text = self.totalPop;
+////    infoPane.totalPop.text = [theMarker.indicatorInfo objectForKey:@"snippet"];
+////    infoPane.gDP.text = [theMarker.indicatorInfo objectForKey:@"snippet"];
+////    infoPane.fDI.text = [theMarker.indicatorInfo objectForKey:@"snippet"];
+////    infoPane.timeReqBus.text = [theMarker.indicatorInfo objectForKey:@"snippet"];
+////    infoPane.surfaceArea.text = [theMarker.indicatorInfo objectForKey:@"snippet"];
+//    //infoPane.countryImage.image = [UIImage imageNamed:@" "];
+//   // infoPane.location.text = theMarker.info.subTitle;
+//
+//    annotation.contentView = infoPane;
+//
+//    [theViewC addAnnotation:annotation forPoint:self.marker.loc offset:CGPointZero];
+//}
+
 
 // Unified method to handle the selection
 - (void) handleSelection:(MaplyBaseViewController *)viewC
                 selected:(NSObject *)selectedObj
 {
+    // ensure it's a MaplyVectorObject. It should be one of our outlines.
+    if ([selectedObj isKindOfClass:[MaplyVectorObject class]])
+    {
+        MaplyVectorObject *theVector = (MaplyVectorObject *)selectedObj;
+        MaplyCoordinate location;
+        
+        if ([theVector centroid:&location])
+        {
+            NSString *title = @"Selected:";
+            NSString *subtitle = (NSString *)theVector.userObject;
+            [self addAnnotation:title withSubtitle:subtitle at:location];
+        }
+    }
+}
+// Unified method to handle the selection
+//- (void) handleSelection:(MaplyBaseViewController *)viewC
+//                selected:(NSObject *)selectedObj
+//{
     // ensure it's a MaplyVectorObject. It should be one of our outlines.
     //        if ([selectedObj isKindOfClass:[MaplyVectorObject class]])
     //        {
@@ -371,11 +506,12 @@ DataExtract *extractor;
 //    if ([selectedObj isKindOfClass:[ArticleScreenMarker class]])
 //    {
 //        // or it might be a screen marker
-//        ArticleScreenMarker *theMarker = (ArticleScreenMarker *)selectedObj;
-//        [self addAnnotation:theMarker at:theMarker.loc];
+//        self.marker = (ArticleScreenMarker *)selectedObj;
+//    
+//        [self addAnnotation:self.marker at:self.marker.loc];
 //    }
-}
-
+//   
+//}
 // This is the version for a globe
 - (void) globeViewController:(WhirlyGlobeViewController *)viewC
                    didSelect:(NSObject *)selectedObj

@@ -11,9 +11,9 @@
 
 @interface ArticleScreenMarker : MaplyScreenMarker
 
-- (id) initWithDictionary:(NSDictionary *)articleInfo;
+- (id) initWithDictionary:(NSDictionary *)indicatorInfo;
 
 @property MaplyAnnotation *info;
-@property NSDictionary *articleInfo;
+@property NSDictionary *indicatorInfo;
 
 @end

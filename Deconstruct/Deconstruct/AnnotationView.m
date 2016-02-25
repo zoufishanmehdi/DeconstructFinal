@@ -10,11 +10,11 @@
 
 @implementation AnnotationView
 
-- (IBAction)readArticle:(id)sender {
-    if (![[UIApplication sharedApplication] openURL:self.url]) {
-        NSLog(@"%@%@",@"Failed to open url:",[self.url description]);
-    }
-}
+//- (IBAction)readArticle:(id)sender {
+//    if (![[UIApplication sharedApplication] openURL:self.url]) {
+//        NSLog(@"%@%@",@"Failed to open url:",[self.url description]);
+//    }
+//}
 
 - (void) randomFunc {
     return;

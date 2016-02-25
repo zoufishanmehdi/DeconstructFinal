@@ -30,6 +30,7 @@
 		81F4291A1C7E521C00A40CDC /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F429191C7E521C00A40CDC /* libxml2.tbd */; };
 		81F4291C1C7E522700A40CDC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F4291B1C7E522700A40CDC /* libz.tbd */; };
 		81F4291E1C7E524500A40CDC /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F4291D1C7E524500A40CDC /* libc++.tbd */; };
+		81F429201C7E773D00A40CDC /* map_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 81F4291F1C7E773D00A40CDC /* map_pin.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		81F429191C7E521C00A40CDC /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		81F4291B1C7E522700A40CDC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		81F4291D1C7E524500A40CDC /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		81F4291F1C7E773D00A40CDC /* map_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				81F4291B1C7E522700A40CDC /* libz.tbd */,
 				81F429191C7E521C00A40CDC /* libxml2.tbd */,
 				81F429171C7E521200A40CDC /* libsqlite3.tbd */,
+				81F4291F1C7E773D00A40CDC /* map_pin.png */,
 				81F429151C7E520200A40CDC /* CoreLocation.framework */,
 				81F428CA1C7E50C900A40CDC /* Deconstruct */,
 				81F428E41C7E50C900A40CDC /* DeconstructTests */,
@@ -302,6 +305,7 @@
 			files = (
 				81F429061C7E519F00A40CDC /* circle-stroked-24@2x.png in Resources */,
 				81F429031C7E519F00A40CDC /* AP Icon.png in Resources */,
+				81F429201C7E773D00A40CDC /* map_pin.png in Resources */,
 				81F428DB1C7E50C900A40CDC /* LaunchScreen.storyboard in Resources */,
 				81F428D81C7E50C900A40CDC /* Assets.xcassets in Resources */,
 				81F429071C7E519F00A40CDC /* geography-class_medres.mbtiles in Resources */,
@@ -572,6 +576,7 @@
 				81F428F71C7E50CA00A40CDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81F428F81C7E50CA00A40CDC /* Build configuration list for PBXNativeTarget "DeconstructTests" */ = {
 			isa = XCConfigurationList;
@@ -580,6 +585,7 @@
 				81F428FA1C7E50CA00A40CDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81F428FB1C7E50CA00A40CDC /* Build configuration list for PBXNativeTarget "DeconstructUITests" */ = {
 			isa = XCConfigurationList;
@@ -588,6 +594,7 @@
 				81F428FD1C7E50CA00A40CDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

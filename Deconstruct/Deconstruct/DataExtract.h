@@ -10,7 +10,8 @@
 
 @interface DataExtract : NSObject
 
-@property NSArray *articleList;
+@property NSArray *indicatorList;
+@property NSArray *specificIndicatorList;
 
 - (void) openJSON:(NSData *)content;
 

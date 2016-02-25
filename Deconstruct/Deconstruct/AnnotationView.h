@@ -10,14 +10,19 @@
 
 @interface AnnotationView : UIScrollView
 
-@property (weak, nonatomic) IBOutlet UILabel *title;
-@property (weak, nonatomic) IBOutlet UILabel *snippet;
-@property (weak, nonatomic) IBOutlet UILabel *location;
-@property (weak, nonatomic) IBOutlet UIImageView *publisherImage;
+@property (weak, nonatomic) IBOutlet UILabel *countryName;
+
+@property (weak, nonatomic) IBOutlet UILabel *totalPop;
+@property (weak, nonatomic) IBOutlet UILabel *gDP;
+@property (weak, nonatomic) IBOutlet UILabel *fDI;
+@property (weak, nonatomic) IBOutlet UILabel *timeReqBus;
+
+@property (weak, nonatomic) IBOutlet UILabel *surfaceArea;
+@property (weak, nonatomic) IBOutlet UIImageView *countryImage;
+
 
 @property NSURL *url;
 
-- (IBAction)readArticle:(id)sender;
 
 
 @end

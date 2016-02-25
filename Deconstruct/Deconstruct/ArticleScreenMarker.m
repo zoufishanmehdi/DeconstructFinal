@@ -10,11 +10,11 @@
 
 @implementation ArticleScreenMarker
 
-- (id) initWithDictionary:(NSDictionary *)articleInfo    {
+- (id) initWithDictionary:(NSDictionary *)indicatorInfo    {
     self = [super init];
     
     if (self)   {
-        self.articleInfo = articleInfo;
+        self.indicatorInfo = indicatorInfo;
         self.info = [[MaplyAnnotation alloc] init];
     }
 
