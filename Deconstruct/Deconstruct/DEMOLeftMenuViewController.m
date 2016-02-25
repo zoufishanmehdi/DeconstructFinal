@@ -12,6 +12,7 @@
 #import "DEMOSecondViewController.h"
 #import "WorldNewsTVC.h"
 #import "ViewController.h"
+#import "AnalysisTVC.h"
 
 @interface DEMOLeftMenuViewController ()
 
@@ -53,6 +54,11 @@
             break;
         case 1:
             [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]]
+                                                         animated:YES];
+            [self.sideMenuViewController hideMenuViewController];
+            break;
+        case 2:
+            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[[AnalysisTVC alloc] init]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;

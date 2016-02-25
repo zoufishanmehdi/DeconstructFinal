@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ArticleTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *headlineLabel;
-@property (weak, nonatomic) IBOutlet UILabel *snippetLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *headline;
+@property (weak, nonatomic) IBOutlet UILabel *snippet;
+
 @property (weak, nonatomic) IBOutlet UIImageView *articleImage;
 @property (weak, nonatomic) IBOutlet UIView *view;
 

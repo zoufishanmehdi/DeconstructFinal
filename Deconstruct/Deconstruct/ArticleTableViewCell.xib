@@ -63,8 +63,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="articleImage" destination="D7n-P2-rsS" id="bTE-99-4LV"/>
-                <outlet property="headlineLabel" destination="YGA-D5-24q" id="FfC-6I-inY"/>
-                <outlet property="snippetLabel" destination="Oyy-3z-vZ7" id="HPZ-pg-vEB"/>
+                <outlet property="headline" destination="YGA-D5-24q" id="JJt-M4-gbA"/>
+                <outlet property="snippet" destination="Oyy-3z-vZ7" id="NqQ-hK-pwb"/>
                 <outlet property="view" destination="SNS-Sm-vpz" id="b30-VU-sMm"/>
             </connections>
             <point key="canvasLocation" x="501" y="435"/>

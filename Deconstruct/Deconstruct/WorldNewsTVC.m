@@ -245,11 +245,11 @@ UITableViewDelegate>
         WorldNewsData *data = self.searchResults[indexPath.row];
         
         //[cell.textLabel setTextAlignment:NSTextAlignmentLeft];
-        cell.headlineLabel.text = data.titleString;
+        cell.headline.text = data.titleString;
         NSLog(@"%@", data.titleString);
         cell.textLabel.textColor = [UIColor blackColor];
         
-        cell.snippetLabel.text = data.snippetText;
+        cell.snippet.text = data.snippetText;
         NSLog(@"%@", data.snippetText);
         
         cell.articleImage.image = [UIImage imageNamed:@"grayBackground"];

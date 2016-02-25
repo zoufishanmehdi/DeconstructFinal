@@ -18,6 +18,11 @@
 		81DE88D41C7F74840085D0C5 /* ArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81DE88CF1C7F74840085D0C5 /* ArticleTableViewCell.m */; };
 		81DE88D51C7F74840085D0C5 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DE88D01C7F74840085D0C5 /* ArticleTableViewCell.xib */; };
 		81DE88D61C7F74840085D0C5 /* WorldNewsTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DE88D11C7F74840085D0C5 /* WorldNewsTVC.xib */; };
+		81DE88DB1C7F8BA60085D0C5 /* AnalysisTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 81DE88D91C7F8BA50085D0C5 /* AnalysisTVC.m */; };
+		81DE88DC1C7F8BA60085D0C5 /* AnalysisTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DE88DA1C7F8BA50085D0C5 /* AnalysisTVC.xib */; };
+		81DE88E01C7F8BEA0085D0C5 /* TopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81DE88DE1C7F8BEA0085D0C5 /* TopicTableViewCell.m */; };
+		81DE88E11C7F8BEA0085D0C5 /* TopicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DE88DF1C7F8BEA0085D0C5 /* TopicTableViewCell.xib */; };
+		81DE88E41C7F8D6F0085D0C5 /* AnalysisData.m in Sources */ = {isa = PBXBuildFile; fileRef = 81DE88E31C7F8D6F0085D0C5 /* AnalysisData.m */; };
 		81F428CD1C7E50C900A40CDC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F428CC1C7E50C900A40CDC /* main.m */; };
 		81F428D01C7E50C900A40CDC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F428CF1C7E50C900A40CDC /* AppDelegate.m */; };
 		81F428D31C7E50C900A40CDC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F428D21C7E50C900A40CDC /* ViewController.m */; };
@@ -82,6 +87,14 @@
 		81DE88CF1C7F74840085D0C5 /* ArticleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleTableViewCell.m; sourceTree = "<group>"; };
 		81DE88D01C7F74840085D0C5 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
 		81DE88D11C7F74840085D0C5 /* WorldNewsTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorldNewsTVC.xib; sourceTree = "<group>"; };
+		81DE88D81C7F8BA50085D0C5 /* AnalysisTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalysisTVC.h; sourceTree = "<group>"; };
+		81DE88D91C7F8BA50085D0C5 /* AnalysisTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalysisTVC.m; sourceTree = "<group>"; };
+		81DE88DA1C7F8BA50085D0C5 /* AnalysisTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnalysisTVC.xib; sourceTree = "<group>"; };
+		81DE88DD1C7F8BE90085D0C5 /* TopicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicTableViewCell.h; sourceTree = "<group>"; };
+		81DE88DE1C7F8BEA0085D0C5 /* TopicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicTableViewCell.m; sourceTree = "<group>"; };
+		81DE88DF1C7F8BEA0085D0C5 /* TopicTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicTableViewCell.xib; sourceTree = "<group>"; };
+		81DE88E21C7F8D6E0085D0C5 /* AnalysisData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalysisData.h; sourceTree = "<group>"; };
+		81DE88E31C7F8D6F0085D0C5 /* AnalysisData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalysisData.m; sourceTree = "<group>"; };
 		81F428C81C7E50C900A40CDC /* Deconstruct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deconstruct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F428CC1C7E50C900A40CDC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		81F428CE1C7E50C900A40CDC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -257,6 +270,14 @@
 				81F4290D1C7E51C800A40CDC /* AnnotationView.xib */,
 				81F4290E1C7E51C800A40CDC /* AnnotationView.h */,
 				81F4290F1C7E51C800A40CDC /* AnnotationView.m */,
+				81DE88E21C7F8D6E0085D0C5 /* AnalysisData.h */,
+				81DE88E31C7F8D6F0085D0C5 /* AnalysisData.m */,
+				81DE88D81C7F8BA50085D0C5 /* AnalysisTVC.h */,
+				81DE88D91C7F8BA50085D0C5 /* AnalysisTVC.m */,
+				81DE88DD1C7F8BE90085D0C5 /* TopicTableViewCell.h */,
+				81DE88DE1C7F8BEA0085D0C5 /* TopicTableViewCell.m */,
+				81DE88DF1C7F8BEA0085D0C5 /* TopicTableViewCell.xib */,
+				81DE88DA1C7F8BA50085D0C5 /* AnalysisTVC.xib */,
 				81F428D41C7E50C900A40CDC /* Main.storyboard */,
 				81F428D71C7E50C900A40CDC /* Assets.xcassets */,
 				81F428D91C7E50C900A40CDC /* LaunchScreen.storyboard */,
@@ -405,12 +426,14 @@
 				81DE88D51C7F74840085D0C5 /* ArticleTableViewCell.xib in Resources */,
 				81F428D81C7E50C900A40CDC /* Assets.xcassets in Resources */,
 				81DE88C41C7F74110085D0C5 /* Main.storyboard in Resources */,
+				81DE88DC1C7F8BA60085D0C5 /* AnalysisTVC.xib in Resources */,
 				81F429071C7E519F00A40CDC /* geography-class_medres.mbtiles in Resources */,
 				81F429041C7E519F00A40CDC /* data.json in Resources */,
 				81F429051C7E519F00A40CDC /* world_countries.mbtiles in Resources */,
 				81F429111C7E51C800A40CDC /* AnnotationView.xib in Resources */,
 				81F428D61C7E50C900A40CDC /* Main.storyboard in Resources */,
 				81DE88D61C7F74840085D0C5 /* WorldNewsTVC.xib in Resources */,
+				81DE88E11C7F8BEA0085D0C5 /* TopicTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,12 +511,15 @@
 				81DE88D41C7F74840085D0C5 /* ArticleTableViewCell.m in Sources */,
 				81F429121C7E51C800A40CDC /* AnnotationView.m in Sources */,
 				81F4290A1C7E51B800A40CDC /* DataExtract.m in Sources */,
+				81DE88E01C7F8BEA0085D0C5 /* TopicTableViewCell.m in Sources */,
 				81DE88C81C7F743C0085D0C5 /* TTUITableViewZoomController.m in Sources */,
+				81DE88E41C7F8D6F0085D0C5 /* AnalysisData.m in Sources */,
 				81F429101C7E51C800A40CDC /* ArticleScreenMarker.m in Sources */,
 				81DE88C31C7F74110085D0C5 /* DEMOSecondViewController.m in Sources */,
 				81DE88D31C7F74840085D0C5 /* WorldNewsTVC.m in Sources */,
 				81DE88D21C7F74840085D0C5 /* WorldNewsData.m in Sources */,
 				81F428D01C7E50C900A40CDC /* AppDelegate.m in Sources */,
+				81DE88DB1C7F8BA60085D0C5 /* AnalysisTVC.m in Sources */,
 				81F428CD1C7E50C900A40CDC /* main.m in Sources */,
 				81DE88C11C7F74110085D0C5 /* DEMOLeftMenuViewController.m in Sources */,
 			);

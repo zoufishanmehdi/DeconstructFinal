@@ -36,10 +36,10 @@
             </objects>
             <point key="canvasLocation" x="342" y="36"/>
         </scene>
-        <!--Whirly GlobeVC-->
+        <!--View Controller-->
         <scene sceneID="oFv-p7-5st">
             <objects>
-                <viewController id="6jf-pn-xeX" customClass="WhirlyGlobeVC" sceneMemberID="viewController">
+                <viewController id="6jf-pn-xeX" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GJ2-4j-njZ"/>
                         <viewControllerLayoutGuide type="bottom" id="FNh-Ia-PKV"/>
@@ -49,10 +49,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="8zG-87-Yu6" kind="show" id="9vd-Z2-hKF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uJP-5h-WDd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="973" y="36"/>
+        </scene>
+        <!--AnalysisTVC-->
+        <scene sceneID="hEA-g7-8EQ">
+            <objects>
+                <tableViewController id="8zG-87-Yu6" customClass="AnalysisTVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="1g4-Js-GYw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopicCell" id="qNu-Fj-fnO">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qNu-Fj-fnO" id="HHi-hm-Fgt">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8zG-87-Yu6" id="TPj-Lx-GgV"/>
+                            <outlet property="delegate" destination="8zG-87-Yu6" id="LSY-zP-XwE"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bKj-xH-ECt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1616" y="36"/>
         </scene>
     </scenes>
 </document>
